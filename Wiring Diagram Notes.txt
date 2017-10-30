@@ -1,0 +1,25 @@
+Please note that the wiring diagram here is for hookup purposes only.
+Safe power management has been ommitted for clairity. (Capacitors, resistor values, voltage regulation system)
+
+Other Notes:
+------------
+Vss: Voltage System Source. 
+  Connected directly from the system voltage source to the transmitter.
+  Bypasses the regulator systems as RF Transmitters can dramatically change current requirements, and may
+   cause current spikes or brownouts in systems with poor power management. WRL-10534 in example accepts 5-12V.
+
+Vdd: Voltage, Secondary Source.
+  A separate voltage source is recommended.
+  For chip- or linearly-controlled relay boards, it is a good practice to separate the power sources for the 
+   relay and the board/controller, to limit the risk of power spikes or voltage ringing.
+
++5V: Connected through the Arduino 5V Regulator or through an external 5V source.
+  Total recommended power draw through the 5V line on the Arduino Uno is 500mA, with 800mA being the 
+    maximum recommed limit. Maximum current draw in example is estimated to be <30mA for the Hub Node, 
+    and ~50mA maximum for for the Leaf Nodes.
+
+Leaf: Pin 7: Relay Signal Pin.
+  Please be sure that the relay controller/driver you are using AND the indicator LED use a total of less than
+    30mA. The Uno is rated for 40mA maximum on a single pin.
+  If you are using a non-isolated relay, or one that requires a larger amount of current to toggle, a 
+    secondary driver, such as a MOSFET, is highly recommended.
