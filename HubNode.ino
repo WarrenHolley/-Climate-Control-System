@@ -1,7 +1,7 @@
 /*  Climate Control System  - Sensor Hub.
     Author   Warren Holley
     Version  0.2.0
-    Date     October 27,2017
+    Date     October 29,2017
 
     Purpose
       This component is a central hub for sensing and communication.
